@@ -46,7 +46,7 @@ $.fn.liteUploader = function (userOptions)
 		{
 			var errorsArray = findErrors(files[i], options);
 			if (errorsArray.length > 0) { errors = true; }
-			options.each(files[i], errorsArray);
+			if (options.each(files[i], errorsArray) === false) { errors = true };
 		});
 
 		if (errors) { return false; }
